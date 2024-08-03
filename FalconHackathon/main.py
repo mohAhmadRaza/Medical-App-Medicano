@@ -47,7 +47,7 @@ class MultiApp:
 Medical = MultiApp()
 
 # Add apps to the MultiApp instance
-Medical.add_apps("Home", Home.app)
+Medical.add_apps("Home", Home.Home().app())
 Medical.add_apps("Diagnose Disease", lambda: DiagnoseDisease.Diagnose().app())
 Medical.add_apps("Medicine Alternatives", lambda: Alternatives.Alternatives().app())
 Medical.add_apps("Medicine Information", lambda: MedicineInformation.Information().app())
