@@ -1,6 +1,6 @@
 # Meidcano
 
-(https://github.com/user-attachments/assets/c22b7517-af8f-485d-910e-1d51a8538b93)
+![Green and Yellow Simple Clean Shoes Sale Banner](https://github.com/user-attachments/assets/c22b7517-af8f-485d-910e-1d51a8538b93)
 
 
 ## 🏆 Overview
