@@ -1,8 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-
-import Blogs
-import Home, Alternatives, DiagnoseDisease, MedicineInformation, NearbyPharmacies
+import Blogs, Home, Alternatives, DiagnoseDisease, MedicineInformation, NearbyPharmacies
 
 st.set_page_config(
     page_title="Medicano",
@@ -47,7 +45,7 @@ class MultiApp:
 Medical = MultiApp()
 
 # Add apps to the MultiApp instance
-Medical.add_apps("Home", Home.Home().app())
+Medical.add_apps("Home", lambda: Home.Homes().app())
 Medical.add_apps("Diagnose Disease", lambda: DiagnoseDisease.Diagnose().app())
 Medical.add_apps("Medicine Alternatives", lambda: Alternatives.Alternatives().app())
 Medical.add_apps("Medicine Information", lambda: MedicineInformation.Information().app())
