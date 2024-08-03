@@ -1,6 +1,7 @@
 import streamlit as st
 
 class Homes:
+    @staticmethod
     def app():
         # Streamlit UI components
         st.markdown("""
