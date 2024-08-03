@@ -11,15 +11,15 @@ class Homes:
         </div>
         """, unsafe_allow_html=True)
         # Title of the application
-        st.title("Welcome to MediInfo")
+        st.title("Welcome")
         
         # Add an image or logo if you have one
         # st.image("path_to_your_logo.png", width=200)
         
         # Description of the app
-        st.header("About MediInfo")
+        st.header("About Medicano")
         st.write("""
-        MediInfo is a comprehensive mobile application designed to provide detailed information about medications. Our goal is to help users make informed decisions about their health by offering insights into medication uses, pricing, alternatives, and availability.
+        Medicano is a comprehensive mobile application designed to provide detailed information about medications. Our goal is to help users make informed decisions about their health by offering insights into medication uses, pricing, alternatives, and availability.
         """)
         
         # Features of the app
@@ -55,4 +55,4 @@ class Homes:
         # st.write("Content for additional section.")
         
         # Footer
-        st.write("© 2024 MediInfo. All rights reserved.")
+        st.write("© 2024 Medicano. All rights reserved.")
