@@ -37,10 +37,11 @@ class Homes:
         # Team members
         st.header("Meet Our Team")
         st.write("""
-        - **Zuhair Khan:** Co-founder & Lead Developer
-        - **Quaid Khalid:** Co-founder & UI/UX Designer
-        - **Anjaleen Swamni:** Co-founder & Backend Developer
-        - **Jay:** Co-founder & Marketing Specialist
+        - **Ahmad Raza:** CEO & Lead Developer
+        - **Flap** Co-founder & UI/UX Designer
+        - **Mobarak** Co-founder & Backend Developer
+        - **Arslan** Co-founder & idea Specialist
+        - **Kolmax** Co-founder & Presenter
         """)
         
         # Contact Information
