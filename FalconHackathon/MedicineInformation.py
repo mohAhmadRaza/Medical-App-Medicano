@@ -29,7 +29,7 @@ class Information:
 
         # Streamlit UI components
         st.markdown("""
-        <div style="background-color: #000066; text-align: center; padding: 10px;border-radius : 5px">
+        <div style="background-color: #000066; text-align: center; padding: 10px;border-radius: 5px;margin-bottom: 20px;">
           <h1 style="color: white; font-size: 70px; margin-bottom: -40px;">Medicano</h1>
           <h2 style="color: white; font-size: 20px; margin-top: 5px;">A Medical Assistant</h2>
         </div>
