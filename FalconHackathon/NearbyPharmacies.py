@@ -5,6 +5,7 @@ import os
 
 class Pharmacies:
     def __init__(self, api_key):
+        load_dotenv()
         self.api_key = os.getenv("GOOGLE_API_KEY")
         self.endpoint_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
