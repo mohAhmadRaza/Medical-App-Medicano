@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os
 
-class PharmacyFinder:
+class Pharmacies:
     def __init__(self, api_key):
         self.api_key = os.getenv("GOOGLE_API_KEY")
         self.endpoint_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
