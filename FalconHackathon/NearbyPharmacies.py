@@ -78,7 +78,7 @@ class Pharmacies:
                             pharmacies = self.find_nearby_pharmacies((lat, lon), radius)
 
                             if pharmacies:
-                                st.write(f"Found {len(pharmacies)} pharmacies:")
+                                st.header(f"Found {len(pharmacies)} pharmacies:")
                                 for place in pharmacies:
                                     name = place.get('display_name', 'No name available')
                                     address = ", ".join([place.get('address', {}).get(component, '') for component in ['road', 'suburb', 'city', 'state', 'country']]).strip(', ')
