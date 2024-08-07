@@ -1,66 +1,53 @@
 import streamlit as st
-import os
+import requests
 from dotenv import load_dotenv
-from ai71 import AI71
+import os
 
+class PharmacyFinder:
+    def __init__(self, api_key):
+        self.api_key = os.getenv("GOOGLE_API_KEY")
+        self.endpoint_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
-class Pharmacies:
-    def __init__(self):
-        # loading environment variables from .env file
-        load_dotenv()
-        self.AI71_API_KEY = os.getenv("AI71_API_KEY")
-        self.client = AI71(self.AI71_API_KEY)
+    def find_nearby_pharmacies(self, location, radius):
+        params = {
+            'key': self.api_key,
+            'location': location,
+            'radius': radius,
+            'type': 'pharmacy',
+            'language': 'en',
+            'region': 'us'
+        }
+        
+        response = requests.get(self.endpoint_url, params=params)
+        results = response.json()
+
+        if results.get('status') == 'OK':
+            return results.get('results', [])
+        else:
+            st.error(f"Error: {results.get('status')}")
+            return []
 
     def app(self):
+        st.title("Nearby Pharmacy Finder")
 
-        # Streamlit UI components
-        st.markdown("""
-            <div style="background-color: #000066; text-align: center; padding: 10px;border-radius : 5px;margin-bottom: 10px;">
-              <h1 style="color: white; font-size: 70px; margin-bottom: -40px;">Medicano</h1>
-              <h2 style="color: white; font-size: 20px; margin-top: 5px;">A Medical Assistant</h2>
-            </div>
-            """, unsafe_allow_html=True)
-
-        country = st.text_input("Enter The Country Name")
-        state = st.text_input("Enter the State Name")
-        city = st.text_input("Enter The City Name")
-        town = st.text_input("Enter the Town/Village Name")
-        others = st.text_input("Further Location")
+        # User inputs
+        location = st.text_input("Enter location (latitude,longitude):", "52.369358,4.889258")
+        radius = st.slider("Select radius (meters):", 100, 5000, 500)
 
         if st.button("Find Pharmacies"):
-            prompt = f"""
-            You are a highly capable AI designed to provide comprehensive and accurate information. The user has provided the following location details to find pharmacies:
-        
-            - Country: {country}
-            - State: {state}
-            - City: {city}
-            - Town/Village: {town}
-            - Additional Location Information: {others}
-        
-            Please identify and list all available pharmacies in this location. For each pharmacy, include the following details if available:
-            1. Pharmacy Name
-            2. Address
-            3. Contact Information
-            4. Operating Hours
-            5. Services Offered
-        
-            If the exact location is not available, provide the nearest pharmacies or general information about pharmacies in the specified area. Make sure to include any relevant details that could assist the user in locating a pharmacy. Use google map or any other to find pharmacies
-            """
+            if location:
+                with st.spinner("Searching for pharmacies..."):
+                    pharmacies = self.find_nearby_pharmacies(location, radius)
 
-            response = self.client.chat.completions.create(
-                model="tiiuae/falcon-180b-chat",
-                messages=[
-                    {"role": "system", "content": "You are a google map."},
-                    {"role": "user", "content": prompt},
-                ],
-                stream=True,
-            )
+                    if pharmacies:
+                        st.write(f"Found {len(pharmacies)} pharmacies:")
+                        for place in pharmacies:
+                            st.write(f"**Name:** {place['name']}")
+                            st.write(f"**Address:** {place.get('vicinity', 'No address available')}")
+                            st.write(f"**Location:** Latitude: {place['geometry']['location']['lat']}, Longitude: {place['geometry']['location']['lng']}")
+                            st.write("---")
+                    else:
+                        st.write("No pharmacies found.")
+            else:
+                st.warning("Please enter a valid location.")
 
-            # Collect the streamed response content
-            response_content = ""
-            for chunk in response:
-                if chunk.choices[0].delta.content:
-                    response_content += chunk.choices[0].delta.content
-
-            st.title(f"Pharmacies Located")
-            st.markdown(response_content)
