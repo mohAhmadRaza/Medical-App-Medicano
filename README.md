@@ -5,7 +5,7 @@
 
 ## 🏆 Overview
 
-**FalconHackathone** is an innovative project developed during a hackathon that provides a comprehensive solution for Medical purposes. The project leverages cutting-edge technologies and is designed to be user-friendly, efficient, and easily deployable.
+**MEDICANO** is an innovative project developed during a hackathon that provides a comprehensive solution for Medical purposes. The project leverages cutting-edge technologies and is designed to be user-friendly, efficient, and easily deployable.
 
 ## 🚀 Features
 
@@ -148,13 +148,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any questions, feel free to reach out:
 
-- **Email**: your-email@example.com
+- **Email**: sktfscm21557034@gmail.com
 - **GitHub**: [mohAhmadRaza](https://github.com/mohAhmadRaza)
-- **LinkedIn**: [your-linkedin-profile](https://www.linkedin.com/in/mohAhmadRaza)
+- **LinkedIn**: [Ahmad Raza](https://www.linkedin.com/in/mohAhmadRaza)
 
 ---
 
-Thank you for using **FalconHackathone**! We hope you find it valuable. Contributions, feedback, and suggestions are always welcome.
+Thank you for using **Medicano**! We hope you find it valuable. Contributions, feedback, and suggestions are always welcome.
 
 ---
 
